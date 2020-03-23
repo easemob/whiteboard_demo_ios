@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E0972BFC2422081B00363C58 /* Hyphenate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0972BFA2422081600363C58 /* Hyphenate.framework */; };
-		E0972BFD2422081B00363C58 /* Hyphenate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0972BFA2422081600363C58 /* Hyphenate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E0DA9683240DFC330085EBD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DA9682240DFC330085EBD9 /* AppDelegate.m */; };
 		E0DA968C240DFC330085EBD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0DA968A240DFC330085EBD9 /* Main.storyboard */; };
 		E0DA968E240DFC360085EBD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0DA968D240DFC360085EBD9 /* Assets.xcassets */; };
@@ -36,6 +34,8 @@
 		E0DA9AA02412054C0085EBD9 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DA9A9A2412054B0085EBD9 /* SVProgressHUD.m */; };
 		E0DA9AA12412054C0085EBD9 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DA9A9B2412054B0085EBD9 /* SVIndefiniteAnimatedView.m */; };
 		E0DA9AA22412054C0085EBD9 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0DA9A9C2412054B0085EBD9 /* SVProgressHUD.bundle */; };
+		E0DB865F2428A2B000F99A06 /* Hyphenate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DB865D2428A2A900F99A06 /* Hyphenate.framework */; };
+		E0DB86602428A2B000F99A06 /* Hyphenate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0DB865D2428A2A900F99A06 /* Hyphenate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E0972BFD2422081B00363C58 /* Hyphenate.framework in Embed Frameworks */,
+				E0DB86602428A2B000F99A06 /* Hyphenate.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +70,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E0972BFA2422081600363C58 /* Hyphenate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Hyphenate.framework; sourceTree = "<group>"; };
 		E0DA967E240DFC330085EBD9 /* WhiteBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DA9681240DFC330085EBD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E0DA9682240DFC330085EBD9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		E0DA9A9B2412054B0085EBD9 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		E0DA9A9C2412054B0085EBD9 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		E0DA9A9D2412054B0085EBD9 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		E0DB865D2428A2A900F99A06 /* Hyphenate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Hyphenate.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0972BFC2422081B00363C58 /* Hyphenate.framework in Frameworks */,
+				E0DB865F2428A2B000F99A06 /* Hyphenate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +181,7 @@
 		E0DA9680240DFC330085EBD9 /* WhiteBoard */ = {
 			isa = PBXGroup;
 			children = (
-				E0972BFA2422081600363C58 /* Hyphenate.framework */,
+				E0DB865D2428A2A900F99A06 /* Hyphenate.framework */,
 				E0DA96B6240E06D50085EBD9 /* 3rdParty */,
 				E0DA9A8C2411EF7C0085EBD9 /* Category */,
 				E0DA9681240DFC330085EBD9 /* AppDelegate.h */,
