@@ -171,6 +171,8 @@
     self.roomPasswordTextFiled.delegate = self;
     self.roomPasswordTextFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.roomPasswordTextFiled.tag = 2;
+    self.roomPasswordTextFiled.returnKeyType = UIReturnKeyDone;
+    self.roomPasswordTextFiled.secureTextEntry = YES;
     self.roomPasswordTextFiled.layer.borderColor = [UIColor grayColor].CGColor;
     self.roomPasswordTextFiled.layer.borderWidth = 0.5;
     self.roomPasswordTextFiled.layer.cornerRadius = 5.0;
@@ -290,6 +292,21 @@
     } else {
         self.roomPassword = textField.text;
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.returnKeyType == UIReturnKeyDone)
+    {
+        [textField endEditing:YES];
+    }
+    return YES;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 @end

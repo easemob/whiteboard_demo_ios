@@ -36,38 +36,13 @@ static GlobalTool *tool = nil;
 - (void)registerIMUser
 {
     NSString *newUserName = [self getRandomUserName];
-    NSLog(@"随机的用户id --- %@", newUserName);
     self.userName = newUserName;
     __weak typeof(self) weakSelf = self;
     [[EMClient sharedClient] registerWithUsername:newUserName password:@"123456" completion:^(NSString *aUsername, EMError *aError) {
         if (!aError) {
-            NSLog(@"注册成功 --- %@", aUsername);
             [weakSelf loginWithUserName:aUsername];
         } else {
-            NSLog(@"注册失败 --- %@", aError.errorDescription);
-            switch (aError.code) {
-                case 2:
-                    [weakSelf svProgressHUD:@"当前无网络连接，请连接网络!" time:3.0 type:ShowTypeFail];
-                    break;
-                case 203:
-                    [weakSelf loginWithUserName:newUserName];
-                    break;
-                case 300:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                case 301:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                case 302:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                case 303:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                default:
-                    break;
-            }
-            
+            [weakSelf errorHUD:aError];
         }
     }];
 }
@@ -79,27 +54,32 @@ static GlobalTool *tool = nil;
         if (!aError) {
             [[EMClient sharedClient].options setIsAutoLogin:YES];
         } else {
-            switch (aError.code) {
-                case 2:
-                    [weakSelf svProgressHUD:@"当前无网络连接，请连接网络!" time:3.0 type:ShowTypeFail];
-                    break;
-                case 300:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                case 301:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                case 302:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                case 303:
-                    [weakSelf svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
-                    break;
-                default:
-                    break;
-            }
+            [weakSelf errorHUD:aError];
         }
     }];
+}
+
+- (void)errorHUD:(EMError *)aError
+{
+    switch (aError.code) {
+        case 2:
+            [self svProgressHUD:@"当前无网络连接，请连接网络!" time:3.0 type:ShowTypeFail];
+            break;
+        case 300:
+            [self svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
+            break;
+        case 301:
+            [self svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
+            break;
+        case 302:
+            [self svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
+            break;
+        case 303:
+            [self svProgressHUD:@"网络异常，请切换网络重试!" time:2.0 type:ShowTypeFail];
+            break;
+        default:
+            break;
+    }
 }
 
 - (NSString *)getRandomUserName
