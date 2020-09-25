@@ -251,8 +251,8 @@
             loadVC.whiteBoardUrl = aWhiteboard.roomURL;
             [self.navigationController pushViewController:loadVC animated:YES];
         } else {
-            if (aError.code == 800) {
-                [[EMClient sharedClient].conferenceManager createWhiteboardRoomWithUsername:[EMClient sharedClient].currentUsername userToken:[EMClient sharedClient].accessUserToken roomName:self.roomName roomPassword:self.roomPassword completion:^(EMWhiteboard *aWhiteboard, EMError *aError) {
+            if (aError.code == EMErrorCallRoomNotExist) {
+                [[EMClient sharedClient].conferenceManager createWhiteboardRoomWithUsername:[EMClient sharedClient].currentUsername userToken:[EMClient sharedClient].accessUserToken roomName:self.roomName roomPassword:self.roomPassword interact:YES completion:^(EMWhiteboard *aWhiteboard, EMError *aError) {
                     [weakself hideHud];
                     if (!aError) {
                         LoadWhiteBoardH5ViewController *loadVC = [[LoadWhiteBoardH5ViewController alloc] init];
